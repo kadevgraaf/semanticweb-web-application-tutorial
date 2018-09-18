@@ -127,18 +127,25 @@ Alternative installation instructions can be found at <http://docs.stardog.com/#
 #### 4.2 Linux/Mac
 One way to get it running:
 
-* Move or copy the unzipped directory `stardog-4.1.3` to your `Documents` folder. You now have a directory called `/Users/YOURUSERNAME/Documents/stardog-4.1.3`
-* Create a `data` directory inside it, this is now `/Users/YOURUSERNAME/Documents/stardog-4.1.3/data`
-* Copy the `stardog-license.bin` to `/Users/YOURUSERNAME/Documents/stardog-4.1.3/data`
+* Move or copy the unzipped directory `stardog-5.3.4` to your `Documents` folder. You now have a directory called `/Users/YOURUSERNAME/Documents/stardog-5.3.4`
+* Create a `data` directory inside it, this is now `/Users/YOURUSERNAME/Documents/stardog-5.3.4/data`
+* Copy the `stardog-license.bin` to `/Users/YOURUSERNAME/Documents/stardog-5.3.4/data`
 * Open up a Terminal window, and type `open ~/.bash_profile`, this opens a TextEdit window on mac. Linux users will know what to do.
 * Add the following lines anywhere in the file:
 
 ```
-export STARDOG_HOME=/Users/YOURUSERNAME/Documents/stardog-4.1.3/data
-export PATH=$PATH:/Users/YOURUSERNAME/Documents/stardog-4.1.3/bin
+export STARDOG_HOME=/Users/YOURUSERNAME/Documents/stardog-5.3.4/data
+export PATH=$PATH:/Users/YOURUSERNAME/Documents/stardog-5.3.4/bin
 ```
+
 * Close the Terminal window, and open a new one
-* Run the Stardog server via `stardog-admin server start --disable-security` (you need to do this every time you have rebooted your system. If you want to manually stop the service, type `stardog-admin server stop`)
+* Move inside the terminal to the bin directory:
+`cd /Documents/stardog-5.3.4/bin`
+* Run the Stardog server via `./stardog-admin server start --disable-security` while inside the bin directory! (you need to do this every time you have rebooted your system. If you want to manually stop the service, type `./stardog-admin server stop`)
+* If Stardog complains about the licence file not being in the correct directory, run the following line within the terminal:
+`export STARDOG_HOME=/Users/YOURUSERNAME/Documents/stardog-5.3.4/data`
+
+
 * Open your browser, and go to <http://localhost:5820> the login details are `admin` and `admin`
 * Whee!
 
