@@ -140,7 +140,7 @@ export PATH=$PATH:/Users/YOURUSERNAME/Documents/stardog-5.3.4/bin
 
 * Close the Terminal window, and open a new one
 * Move inside the terminal to the bin directory:
-`cd /Documents/stardog-5.3.4/bin`
+`cd Documents/stardog-5.3.4/bin`
 * Run the Stardog server via `./stardog-admin server start --disable-security` while inside the bin directory! (you need to do this every time you have rebooted your system. If you want to manually stop the service, type `./stardog-admin server stop`)
 * If Stardog complains about the licence file not being in the correct directory, run the following line within the terminal:
 `export STARDOG_HOME=/Users/YOURUSERNAME/Documents/stardog-5.3.4/data`
