@@ -19,7 +19,7 @@ In this session you will learn how to:
 * [Angular](https://angular.io/), a Javascript framework to facilitate the bindings between  
 * The [Chart.js](http://jtblin.github.io/angular-chart.js/) library to visualise data  
 
-* N.B. The information above is only for reference!!* No need to install anything, everything you need is already in the .zip file. 
+**N.B. The information above is only for reference!!** No need to install anything, everything you need is already in the .zip file. 
 
 Just open:
 * a text editor (Notepad, TextEdit) to modify the files, and 
@@ -120,7 +120,7 @@ First, let's create an HTML element taking the input of the user (see [Bootstrap
 ``` 
 N.B. : the `ng-model` will bind the type input to the $scope! Do not forget it when you use input elements. 
 
-Now, we need to create an action that will be performed by the javascript code when the button will be clikced. We can do this by adding the keyword `ng-click="doMyAction()` to the button element:
+Now, we need to create an action that will be performed by the javascript code when the button will be clikced. We can do this by adding a function and the keyword `ng-click` to the button element:
 ```HTML
 <button class="btn btn-outline-secondary" ng-click="doMyAction()" type="button">GO!</button>
 ```
