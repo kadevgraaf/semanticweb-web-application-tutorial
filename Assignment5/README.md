@@ -60,9 +60,9 @@ and create an html element in the _index.html_ to show the variable:
 ```
 now open your _index.html_ (or refresh the page). Do you see your App name? 
 
-* (optional) A more difficult one: let's create a new list in the $scope, e.g.:
+* (optional) A more difficult one: create a new list in the $scope with 3 classes from the _communication.ttl_ file, e.g.:
 ``` javascript
-$scope.myAppList = [ "My first element", "My second element", "My third element" ]; 
+$scope.myAppList = [ "codaonto:Study", "codaonto:Treatment", "codaonto:Variable" ]; 
 ```
 and let's visualise it nicely 
 ```html
@@ -70,7 +70,7 @@ and let's visualise it nicely
   <li class="list-group-item">{{element}}</li>
 </ul>
 ```
-The *ng-repeat* is a "keyword" that allows you to iterate through elements of a list.
+The *ng-repeat* is a "keyword" that allows you to iterate through elements of a list. 
 
 N.B. You can find lots of HTML elements to add in the [Bootstrap documentation][http://getbootstrap.com/docs/4.1/components]!  
 
@@ -85,7 +85,23 @@ Do not forget to replace myDB with the name of your database, and to add the _qu
  <p>My SPARQL endpoint is: {{mysparqlendpoint}}<p>
 ```
 
-## Interacting with our triplestore
+## Our first visualisation 
+
+* Let's ask our triplestore for the classes per number of instances
+``` SPARQL
+SELECT ?class (COUNT(?s) AS ?c) WHERE { ?s a ?class } GROUP BY ?class
+```
+* A chart alway needs a list of data and a list of labels. Hence, we create a $scope list for the instances, and one for the labels. In your _main.js_ :
+```
+$scope.myInstances = [310, 339, 133, 14, 11, 80, 7, 8, 5];
+$scope.myClasses = "Study","Treatment", "Variable","Statistical Test", "Paper", "DilemmaType", "Analysis Level" , "Discipline"];
+```
+* Let's create a chart in _index.html_:
+```html
+<canvas class="chart chart-bar" chart-data="myInstances" chart-labels="myClasses" > </canvas>
+```
+
+
 
 
 ## Problems? Some trouble-shooting:
