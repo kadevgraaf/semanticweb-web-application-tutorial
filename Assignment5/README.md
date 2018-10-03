@@ -181,8 +181,13 @@ Finally, we add the chart in the `index.html`:
 ``` 
 
 ## Problems? Some trouble-shooting:
-* _I modified something on the `index.html` or `main.js`, but nothing has changed_ : Did you save your files again?
+*_I modified something on the `index.html` or `main.js`, but nothing has changed_
+Did you save your files again?
+
 * _where do I put my HTML elements in the `index.html`?_ : Wherever! It will only change its position. As long as it is within the `body` HTML tag. Try it yourself :)
-* _my style is weird! My HTML elements are not centered!_ : try to look at [Bootstrap's layout][http://getbootstrap.com/docs/4.1/layout/overview/] to understand which .css you need to use for your elements to appear in the right place.
+
+* _my style is weird! My HTML elements are not centered!_ : try to look at [Bootstrap's layout](http://getbootstrap.com/docs/4.1/layout/overview/) to understand which .css you need to use for your elements to appear in the right place.
+
 * _My scope variables do not appear on the web page! I only see {{}}!_ : are you sure you have bound the (right) variable to the $scope in the `main.js`?
+
 * _My webpage is completely blank!_ : You probably have a syntax error in your `main.js` : open the broser inspector and try to analyse the problem. You will find which line is your error.
