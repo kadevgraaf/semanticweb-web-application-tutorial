@@ -1,0 +1,18 @@
+.footer-sticky {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.bg-acl {
+	background-color: #f58723;
+}
+
+.a-acl {
+	color: #3c3c3c!important;
+}
+
+.my-card:hover {
+	border-color: #f58723;
+}
