@@ -140,6 +140,7 @@ We will do the same with the triplestore, and try to send a SPARQL query from th
 $http( {
  	method: "GET",
 	url : // TODO : your endpoint + your query here,
+	headers : {'Accept':'application/sparql-results+json', 'Content-Type':'application/sparql-results+json'}
 	} )
 	.success(function(data, status ) {
 	      // TODO : your code here 
@@ -162,9 +163,23 @@ Save and refresh `index.html`. Type a SPARQL query, click the button and see wha
 ```SPARQL
 SELECT ?disc (COUNT(?s) AS ?c) WHERE { ?s <http://data.vu.nl/coda/ontology/property/hasDiscipline> ?disc } GROUP BY ?disc  order by ?c
 ```
-
-The result needs to be treated. We can do this in the _doAction()_ function.
-
+The result is okay but we want to create a chart, so we will manipulate the response. We can do this in the function in  _http.success()_ .
+```
+// // Use the console to see how your response looks like
+// console.log(data);
+$scope.myDynamicLabels = [];
+$scope.myDynamicData = [];
+				  
+ // now iterate on the results
+angular.forEach(data.results.bindings, function(val) {
+	$scope.myDynamicLabels.push(val.disc.value);
+	$scope.myDynamicData.push(val.c.value);
+});
+```
+Finally, we add the chart in the `index.html`:
+```HTML
+<canvas class="chart chart-bar" chart-data="myDynamicData" chart-labels="myDynamicLabels" > </canvas>
+``` 
 
 ## Problems? Some trouble-shooting:
 * _I modified something on the `index.html` or `main.js`, but nothing has changed_ : Did you save your files again?
