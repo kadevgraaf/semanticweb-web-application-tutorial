@@ -13,7 +13,7 @@ In this session you will learn how to:
   
 ### Things we will be using 
  
-* `communication-simple.ttl` as data example
+* `communication.ttl` as data example
 * HTML to generate the content in a web page
 * CSS style, following the [Bootstrap](https://getbootstrap.com/docs/4.0/components) toolkit 
 * [Angular](https://angular.io/), a Javascript framework to facilitate the bindings between  
@@ -29,7 +29,7 @@ Just open:
 
 * Start your Stardog instance. If you do not know how to do it, see instructions at <https://github.com/kadevgraaf/semanticweb-web-application-tutorial/blob/master/tools.md#4-the-stardog-triple-store-version-4-or-higher>
 * Download the `Assignment5.zip` from <https://github.com/kadevgraaf/semanticweb-web-application-tutorial/blob/master/Assignment5/Assignment5.zip>
-* Download `communication-simple.ttl` from this repo.
+* Download `communication.ttl` from this repo.
 
 
 Unzip the file Assignment5.zip in a working directory.
