@@ -13,7 +13,7 @@ In this session you will learn how to:
   
 ### Things we will be using 
  
-* _communication-simple.ttl_ as data example
+* `communication-simple.ttl` as data example
 * HTML to generate the content in the web page (_index.html_)
 * CSS style, following the [Bootstrap][https://getbootstrap.com/docs/4.0/components] toolkit 
 * [Angular][https://angular.io/], a Javascript framework to facilitate the bindings between  
@@ -28,15 +28,14 @@ Just open:
 ## Pre-requisites
 
 * Start your Stardog instance. If you do not know how to do it, see instructions at <https://github.com/kadevgraaf/semanticweb-web-application-tutorial>
-* Download the Assignment5.zip from <https://github.com/kadevgraaf/semanticweb-web-application-tutorial>
-* Download _communication-simple.ttl_ from this repo.
-```
+* Download the `Assignment5.zip` from <https://github.com/kadevgraaf/semanticweb-web-application-tutorial>
+* Download `communication-simple.ttl` from this repo.
 
 ## Setting up
 
 Unzip the file Assignment5.zip in a working directory.
-Place the _communication.ttl_ file in the same directory.
-Load _communication.ttl_ into your Stardog instance, e.g. : 
+Place the `communication.ttl` file in the same directory.
+Load `communication.ttl` into your Stardog instance, e.g. : 
 ```bash
  ./bin/stardog-admin db create -n myDB ./communication.ttl
 ```
@@ -47,62 +46,74 @@ Load _communication.ttl_ into your Stardog instance, e.g. :
 
 ## Play with the interface 
 
-You can  associate a numbero of variables to the $scope in the _main.js_, and these will be "shown" (we say _bound_) to the HTML.  
+You can  associate a numbero of variables to the $scope in the `main.js`, and these will be "shown" (we say _bound_) to the HTML.  
   
-* try to associate a variable to the $scope in the _main.js_ file, e.g.
-
+Try to associate a variable to the $scope in the `main.js` file, e.g.
 ``` javascript
 $scope.myAppName = "My App Name";
 ```
-and create an html element in the _index.html_ to show the variable:
+and create an html element in the `index.html` to show the variable:
 ``` html
 <h3>This is my app name : {{myAppName}}</h3>
 ```
-now open your _index.html_ (or refresh the page). Do you see your App name? 
+now open your `index.html` (or refresh the page). Do you see your App name? 
 
-* (optional) A more difficult one: create a new list in the $scope with 3 classes from the _communication.ttl_ file, e.g.:
+*(Optional)* A more difficult one: create a new list in the $scope with 3 classes from the `communication.ttl` file, e.g.:
 ``` javascript
 $scope.myAppList = [ "codaonto:Study", "codaonto:Treatment", "codaonto:Variable" ]; 
 ```
-and let's visualise it nicely 
+and visualise it nicely :
 ```html
 <ul ng-repeat="element in myAppList" class="list-group">
   <li class="list-group-item">{{element}}</li>
 </ul>
 ```
-The *ng-repeat* is a "keyword" that allows you to iterate through elements of a list. 
+N.B. `ng-repeat` is a "keyword" that allows you to iterate through elements of a list. 
 
-N.B. You can find lots of HTML elements to add in the [Bootstrap documentation][http://getbootstrap.com/docs/4.1/components]!  
+You can find lots of HTML elements to add in the [Bootstrap documentation][http://getbootstrap.com/docs/4.1/components]!  
 
 ## Connect with your triplestore
 
-The web-app needs to be connected with your Stardog server to ask for data. For convenience, we create a $scope variable associated to your endpoint:
+The web-app needs to be connected with your Stardog server to ask for data. For convenience, we create a $scope variable associated to our endpoint:
 ``` javascript
 $scope.endpoint = "http://localhost:5820/myDB/query?query="
 ```
-Do not forget to replace myDB with the name of your database, and to add the _query?query=_ flag to tell your server that you will be asking SPARQL queries! Finally, visualise the endpoint name in the _index.html_:
+Do not forget to replace myDB with the name of your database, and to add the `query?query=` flag to tell your server that you will be asking SPARQL queries! Finally, visualise the endpoint name in the `index.html`:
 ``` html
  <p>My SPARQL endpoint is: {{mysparqlendpoint}}<p>
 ```
 
-## Our first visualisation 
+## Our first chart 
 
-* Let's ask our triplestore for the classes per number of instances
+Let's ask our triplestore for the classes per number of instances
 ``` SPARQL
 SELECT ?class (COUNT(?s) AS ?c) WHERE { ?s a ?class } GROUP BY ?class
 ```
-* A chart alway needs a list of data and a list of labels. Hence, we create a $scope list for the instances, and one for the labels. In your _main.js_ :
+A chart alway needs a list of data and a list of labels. Hence, we create a $scope list for the instances, and one for the labels. In your `main.js` :
 ```
 $scope.myInstances = [310, 339, 133, 14, 11, 80, 7, 8, 5];
 $scope.myClasses = "Study","Treatment", "Variable","Statistical Test", "Paper", "DilemmaType", "Analysis Level" , "Discipline"];
 ```
-* Let's create a chart in _index.html_:
+Let's create a chart in `index.html`:
 ```html
 <canvas class="chart chart-bar" chart-data="myInstances" chart-labels="myClasses" > </canvas>
 ```
+Can you try to visualise the SPARQL query you executed on the page, too?
 
+*(Optional)* Try to change the class of the canvas to obtain a different chart, e.g.:
+```HTML
+<canvas class="chart chart-pie" chart-data="myInstances" chart-labels="myClasses" ></canvas> 
+``` 
+What type of chart do you have now? See more on the [Chart.js docs][http://jtblin.github.io/angular-chart.js/]!
 
+## A dynamic interaction 
 
+A dynamic interaction is one where the user gives an input from the webpage and gets some results from the triplestore. 
+
+First, let's create an HTML element taking the input of the user:
+```
+
+``` 
 
 ## Problems? Some trouble-shooting:
 * _where do I put my HTML elements in the index.html?_ : As 
