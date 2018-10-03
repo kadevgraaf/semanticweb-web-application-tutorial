@@ -44,7 +44,7 @@ Load `communication.ttl` into your Stardog instance, e.g. :
 * which data are there?
 * which classes and properties? 
 
-## Play with the interface 
+## Ex 1 : Play with the interface 
 
 You can  associate a numbero of variables to the $scope in the `main.js`, and these will be "shown" (we say _bound_) to the HTML.  
   
@@ -72,7 +72,7 @@ N.B. `ng-repeat` is a "keyword" that allows you to iterate through elements of a
 
 You can find lots of HTML elements to add in the [Bootstrap documentation][http://getbootstrap.com/docs/4.1/components]!  
 
-## Connect with your triplestore
+### Connect with your triplestore
 
 The web-app needs to be connected with your Stardog server to ask for data. For convenience, we create a $scope variable associated to our endpoint:
 ``` javascript
@@ -83,7 +83,7 @@ Do not forget to replace myDB with the name of your database, and to add the `qu
  <p>My SPARQL endpoint is: {{mysparqlendpoint}}<p>
 ```
 
-## Our first chart 
+## Ex 2 : Our first chart 
 
 Let's ask our triplestore for the classes per number of instances
 ``` SPARQL
@@ -106,16 +106,53 @@ Can you try to visualise the SPARQL query you executed on the page, too?
 ``` 
 What type of chart do you have now? See more on the [Chart.js docs][http://jtblin.github.io/angular-chart.js/]!
 
-## A dynamic interaction 
+## Ex 3: A dynamic interaction 
 
 A dynamic interaction is one where the user gives an input from the webpage and gets some results from the triplestore. 
 
-First, let's create an HTML element taking the input of the user:
-```
-
+First, let's create an HTML element taking the input of the user (see [Bootstrap's input groups][https://getbootstrap.com/docs/4.0/components/input-group/]):
+```HTML
+<div class="input-group mb-3">
+  <input type="text" class="form-control" ng-model="myInput" placeholder="Type here" >
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button">GO!</button>
+  </div>
+</div>
 ``` 
+N.B. : the `ng-model` will bind the type input to the $scope! Do not forget it when you use input elements. 
+
+Now, we need to create an action that will be performed by the javascript code when the button will be clikced. We can do this by adding the keyword `ng-click="doMyAction()` to the button element:
+```HTML
+<button class="btn btn-outline-secondary" ng-click="doMyAction()" type="button">GO!</button>
+```
+Then, you need to create the function in the `main.js`. For your convenience, the function is already there. Try to add create a behaviour, e.g. :
+```javascript
+$scope.result = "Here is my input: " +$scope.myInput+"!";
+``` 
+and then add in the `index.html`:
+```HTML
+<p>{{result}}</p>
+```
+Now refresh the page, type something in the input, and click on the button. Do you see anything?
+
+We will do the same with the triplestore. The triplestore will be called through an _http call_, which needs to be placed in your _doAction()_ function:
+```javascript
+http( {
+ 	method: "GET",
+	url : // TODO : your endpoint + your query here,
+	} )
+	.success(function(data, status ) {
+	      // TODO : your code here 
+  })
+	.error(function(error ){
+	    console.log('Error '+error);
+	});
+```
+The 
+
 
 ## Problems? Some trouble-shooting:
+* _I modified something on the `index.html` or `main.js`, but nothing has changed_ : Did you save your files again?
 * _where do I put my HTML elements in the index.html?_ : As 
 * _my style is weird! My HTML elements are not centered!_ : try to look at [Bootstrap's layout][http://getbootstrap.com/docs/4.1/layout/overview/] to understand which .css you need to use for your elements to appear in the right place.
 * _My scope variables do not appear on the web page! I only see {{}}!_ : are you sure you have bound the (right) variable to the $scope in the _main.js_?
