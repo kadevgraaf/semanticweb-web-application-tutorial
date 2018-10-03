@@ -135,9 +135,9 @@ and then add in the `index.html`:
 ```
 Now refresh the page, type something in the input, and click on the button. Do you see anything?
 
-We will do the same with the triplestore. The triplestore will be called through an _http call_, which needs to be placed in your _doAction()_ function:
+We will do the same with the triplestore, and try to send a SPARQL query from the interface. The triplestore will be called through an _http call_, which needs to be placed in your _doAction()_ function:
 ```javascript
-http( {
+$http( {
  	method: "GET",
 	url : // TODO : your endpoint + your query here,
 	} )
@@ -148,12 +148,27 @@ http( {
 	    console.log('Error '+error);
 	});
 ```
-The 
+Then replace the URL with your $scope.endpoint  and the $scope.myInput :
+``` javascript
+$scope.myQuery = encodeURI($scope.myInput).replace(/#/g, '%23');
+```  
+N.B. The _encodeURI_ and _replace_ functions are needed to transform a SPARQL query into a server-friendly string.
+
+Now, we need to associate the result of the _http_ call to a variable, i.e. :
+``` javascript
+$scope.result = data;
+```
+Save and refresh `index.html`. Type a SPARQL query, click the button and see what happens:
+```SPARQL
+SELECT ?disc (COUNT(?s) AS ?c) WHERE { ?s <http://data.vu.nl/coda/ontology/property/hasDiscipline> ?disc } GROUP BY ?disc  order by ?c
+```
+
+The result needs to be treated. We can do this in the _doAction()_ function.
 
 
 ## Problems? Some trouble-shooting:
 * _I modified something on the `index.html` or `main.js`, but nothing has changed_ : Did you save your files again?
-* _where do I put my HTML elements in the index.html?_ : As 
+* _where do I put my HTML elements in the `index.html`?_ : Wherever! It will only change its position. As long as it is within the `body` HTML tag. Try it yourself :)
 * _my style is weird! My HTML elements are not centered!_ : try to look at [Bootstrap's layout][http://getbootstrap.com/docs/4.1/layout/overview/] to understand which .css you need to use for your elements to appear in the right place.
-* _My scope variables do not appear on the web page! I only see {{}}!_ : are you sure you have bound the (right) variable to the $scope in the _main.js_?
-* _My webpage is all blank!_ : You probably have a syntax error in your _main.js_ : open the broser inspector and try to analyse the problem. You will find which line is your error.
+* _My scope variables do not appear on the web page! I only see {{}}!_ : are you sure you have bound the (right) variable to the $scope in the `main.js`?
+* _My webpage is completely blank!_ : You probably have a syntax error in your `main.js` : open the broser inspector and try to analyse the problem. You will find which line is your error.
