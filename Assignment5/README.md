@@ -181,7 +181,8 @@ Finally, we add the chart in the `index.html`:
 ``` 
 
 ## Problems? Some trouble-shooting:
-*_I modified something on the `index.html` or `main.js`, but nothing has changed_
+
+* _I modified something on the `index.html` or `main.js`, but nothing has changed_
 Did you save your files again?
 
 * _where do I put my HTML elements in the `index.html`?_ : Wherever! It will only change its position. As long as it is within the `body` HTML tag. Try it yourself :)
