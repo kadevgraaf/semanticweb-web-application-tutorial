@@ -28,13 +28,8 @@ Just open:
 ## Setting up
 
 * Start your Stardog instance. If you do not know how to do it, see instructions at <https://github.com/kadevgraaf/semanticweb-web-application-tutorial/blob/master/tools.md#4-the-stardog-triple-store-version-4-or-higher>
-* Download the `Assignment5.zip` from <https://github.com/kadevgraaf/semanticweb-web-application-tutorial/blob/master/Assignment5/Assignment5.zip>
-* Download `communication.ttl` from this repo.
-
-
-Unzip the file Assignment5.zip in a working directory.
-Place the `communication.ttl` file in the same directory.
-Load `communication.ttl` into your Stardog instance : 
+* Download the files (`index.html`, `main.js`, `communication.ttl` as well as the css + js subdir) from the Assignment5 directory.
+* Load `communication.ttl` into your Stardog instance : 
 ```bash
  ./bin/stardog-admin db create -n myDB ./communication.ttl
 ```
