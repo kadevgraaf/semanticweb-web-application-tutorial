@@ -27,8 +27,8 @@ Just open:
 
 ## Setting up
 
-* Start your Stardog instance. If you do not know how to do it, see instructions at <https://github.com/kadevgraaf/semanticweb-web-application-tutorial>
-* Download the `Assignment5.zip` from <https://github.com/kadevgraaf/semanticweb-web-application-tutorial>
+* Start your Stardog instance. If you do not know how to do it, see instructions at <https://github.com/kadevgraaf/semanticweb-web-application-tutorial/blob/master/tools.md#4-the-stardog-triple-store-version-4-or-higher>
+* Download the `Assignment5.zip` from <https://github.com/kadevgraaf/semanticweb-web-application-tutorial/blob/master/Assignment5/Assignment5.zip>
 * Download `communication-simple.ttl` from this repo.
 
 
