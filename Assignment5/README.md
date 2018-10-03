@@ -14,10 +14,10 @@ In this session you will learn how to:
 ### Things we will be using 
  
 * `communication-simple.ttl` as data example
-* HTML to generate the content in the web page (_index.html_)
-* CSS style, following the [Bootstrap][https://getbootstrap.com/docs/4.0/components] toolkit 
-* [Angular][https://angular.io/], a Javascript framework to facilitate the bindings between  
-* The [Chart.js][http://jtblin.github.io/angular-chart.js/] library to visualise data  
+* HTML to generate the content in a web page
+* CSS style, following the [Bootstrap](https://getbootstrap.com/docs/4.0/components) toolkit 
+* [Angular](https://angular.io/), a Javascript framework to facilitate the bindings between  
+* The [Chart.js](http://jtblin.github.io/angular-chart.js/) library to visualise data  
 
 * N.B. The information above is only for reference!!* No need to install anything, everything you need is already in the .zip file. 
 
@@ -25,28 +25,27 @@ Just open:
 * a text editor (Notepad, TextEdit) to modify the files, and 
 * a browser (in inspection mode!) to visualise your data.
 
-## Pre-requisites
+## Setting up
 
 * Start your Stardog instance. If you do not know how to do it, see instructions at <https://github.com/kadevgraaf/semanticweb-web-application-tutorial>
 * Download the `Assignment5.zip` from <https://github.com/kadevgraaf/semanticweb-web-application-tutorial>
 * Download `communication-simple.ttl` from this repo.
 
-## Setting up
 
 Unzip the file Assignment5.zip in a working directory.
 Place the `communication.ttl` file in the same directory.
-Load `communication.ttl` into your Stardog instance, e.g. : 
+Load `communication.ttl` into your Stardog instance : 
 ```bash
  ./bin/stardog-admin db create -n myDB ./communication.ttl
 ```
 
-### Do a couple of SPARQL queries:
+Make a couple of SPARQL queries:
 * which data are there?
 * which classes and properties? 
 
 ## Ex 1 : Play with the interface 
 
-You can  associate a numbero of variables to the $scope in the `main.js`, and these will be "shown" (we say _bound_) to the HTML.  
+You can  associate a number of variables to the $scope in the `main.js`, and these will be "shown" (we say _bound_) to the HTML.  
   
 Try to associate a variable to the $scope in the `main.js` file, e.g.
 ``` javascript
@@ -58,7 +57,7 @@ and create an html element in the `index.html` to show the variable:
 ```
 now open your `index.html` (or refresh the page). Do you see your App name? 
 
-*(Optional)* A more difficult one: create a new list in the $scope with 3 classes from the `communication.ttl` file, e.g.:
+**Optional** A more difficult one: create a new list in the $scope with 3 classes from the `communication.ttl` file, e.g.:
 ``` javascript
 $scope.myAppList = [ "codaonto:Study", "codaonto:Treatment", "codaonto:Variable" ]; 
 ```
@@ -70,7 +69,7 @@ and visualise it nicely :
 ```
 N.B. `ng-repeat` is a "keyword" that allows you to iterate through elements of a list. 
 
-You can find lots of HTML elements to add in the [Bootstrap documentation][http://getbootstrap.com/docs/4.1/components]!  
+You can find lots of HTML elements to add in the [Bootstrap documentation](http://getbootstrap.com/docs/4.1/components)!  
 
 ### Connect with your triplestore
 
@@ -104,13 +103,13 @@ Can you try to visualise the SPARQL query you executed on the page, too?
 ```HTML
 <canvas class="chart chart-pie" chart-data="myInstances" chart-labels="myClasses" ></canvas> 
 ``` 
-What type of chart do you have now? See more on the [Chart.js docs][http://jtblin.github.io/angular-chart.js/]!
+What type of chart do you have now? See more on the [Chart.js docs](http://jtblin.github.io/angular-chart.js/)!
 
 ## Ex 3: A dynamic interaction 
 
 A dynamic interaction is one where the user gives an input from the webpage and gets some results from the triplestore. 
 
-First, let's create an HTML element taking the input of the user (see [Bootstrap's input groups][https://getbootstrap.com/docs/4.0/components/input-group/]):
+First, let's create an HTML element taking the input of the user (see [Bootstrap's input groups](https://getbootstrap.com/docs/4.0/components/input-group/)):
 ```HTML
 <div class="input-group mb-3">
   <input type="text" class="form-control" ng-model="myInput" placeholder="Type here" >
