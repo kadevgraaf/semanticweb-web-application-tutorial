@@ -70,7 +70,7 @@ You can find lots of HTML elements to add in the [Bootstrap documentation](http:
 
 The web-app needs to be connected with your Stardog server to ask for data. For convenience, we create a $scope variable associated to our endpoint:
 ``` javascript
-$scope.endpoint = "http://localhost:5820/myDB/query?query="
+$scope.mysparqlendpoint = "http://localhost:5820/myDB/query?query="
 ```
 Do not forget to replace myDB with the name of your database, and to add the `query?query=` flag to tell your server that you will be asking SPARQL queries! Finally, visualise the endpoint name in the `index.html`:
 ``` html
@@ -92,7 +92,7 @@ Let's create a chart in `index.html`:
 ```html
 <canvas class="chart chart-bar" chart-data="myInstances" chart-labels="myClasses" > </canvas>
 ```
-Can you try to visualise the SPARQL query you executed on the page, too?
+Can you try to visualise the text of the SPARQL query that retrieves this instance list on the page too?
 
 *(Optional)* Try to change the class of the canvas to obtain a different chart, e.g.:
 ```HTML
