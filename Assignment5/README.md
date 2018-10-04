@@ -86,7 +86,7 @@ SELECT ?class (COUNT(?s) AS ?c) WHERE { ?s a ?class } GROUP BY ?class
 A chart alway needs a list of data and a list of labels. Hence, we create a $scope list for the instances, and one for the labels. In your `main.js` :
 ```
 $scope.myInstances = [310, 339, 133, 14, 11, 80, 7, 8, 5];
-$scope.myClasses = "Study","Treatment", "Variable","Statistical Test", "Paper", "DilemmaType", "Analysis Level" , "Discipline"];
+$scope.myClasses = ["Study","Treatment", "Variable","Statistical Test", "Paper", "DilemmaType", "Analysis Level" , "Discipline"];
 ```
 Let's create a chart in `index.html`:
 ```html
