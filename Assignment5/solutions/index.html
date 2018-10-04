@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html ng-App="KRRclass" lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>My Project</title>
+
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+	<link href="./css/css-custom.css" rel="stylesheet">
+
+
+  </head>
+
+  <body  ng-controller="MainCtrl">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-acl mb-5">
+	  <a class="navbar-brand" href="#">
+	      <img src="http://www.few.vu.nl/~wissen/rw_common/images/Griffioen_Boven_Engels.png" height="50" alt="">
+	    </a>
+        <h3>This is my app name : {{myAppName}}</h3>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mb-5">
+        <ul ng-repeat="element in myAppList" class="list-group">
+          <li class="list-group-item">{{element}}</li>
+        </ul>
+
+
+		 <div class="container mt-5 mb-5">
+		   <div class="row">
+		     <div class="col-8">
+	   		 <!-- TODO : Ex 1 here  -->
+             <h1>Excercise 1</h1>
+             <p>My SPARQL endpoint is: {{mysparqlendpoint}}<p>
+
+		   	 </div>
+		 </div>
+	 	</div> <!-- end container  -->
+
+
+		 <div class="container mt-5 mb-5">
+		   <div class="row">
+		     <div class="col-8 align-self-center">
+				    <h1>Excercise 2</h1>
+                    <canvas class="chart chart-bar" chart-data="myInstances" chart-labels="myClasses" > </canvas>
+                    <canvas class="chart chart-pie" chart-data="myInstances" chart-labels="myClasses" ></canvas>
+			     </div>
+
+
+		   </div>
+		 </div> 	 <!-- end Ex 2 -->
+
+
+
+		 <div class="container mt-5 mb-5">
+		   <div class="row">
+  		     <div class="col-8">
+  				    <h1>Excercise 3</h1>
+
+                    <h2>dynamic query</h2>
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" ng-model="myInput" placeholder="Type here" >
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" ng-click="doMyAction()" type="button">GO!</button>
+                      </div>
+                    </div>
+
+                    <p>{{result}}</p>
+                    
+                    <p>Query Results: {{resultQ2}}<p>
+
+                    <h2>predefined query results + chart </h2>
+                    <p>Query Results: {{resultQ1}}<p>
+
+                    <canvas class="chart chart-bar" chart-data="myDynamicData" chart-labels="myDynamicLabels" > </canvas>
+
+  		     </div>
+		    </div>
+		 </div>
+
+
+
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="footer sticky py-3 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Vu_Td-CoopLab 2018</p>
+      </div>
+    </footer>
+
+    <!-- JavaScript libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/angular.min.js"></script>
+
+	<script src="js/Chart.min.js"></script>
+	<script src="js/angular-chart.min.js"></script>
+
+	<script src="main.js"></script>
+
+  </body>
+
+</html>
