@@ -97,7 +97,7 @@ We advise you to use Protégé for the assignments in Week 3.
 
 
 
-## 4 The **GraphDB** triple store (version 8):
+## 4. The **GraphDB** triple store (version 8):
 
 GraphDB is a reasoning-enabled database for Linked Data and ontologies.
 
